@@ -3,280 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/static/images/logo.png">
     <title>Learn - Financial Education</title>
+    <link rel="icon" href="/static/images/logo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-pink: rgba(246, 82, 160, 0.95);
-            --primary-pink-light: rgba(246, 82, 160, 0.1);
-            --primary-pink-hover: rgba(246, 82, 160, 0.8);
-            --section1-bg: #fff1f6;
-            --section2-bg: #fef6f9;
-            --section3-bg: #fff1f6;
-            --card1-color: var(--primary-pink);
-            --card2-color: var(--primary-pink-hover);
-            --card3-color: var(--primary-pink);
-        }
-
-        body {
-            background-color: #fef6f9;
-            color: #333;
-        }
-
-        .navbar {
-            background: var(--primary-pink) !important;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-        }
-
-        .navbar-brand {
-            font-weight: 600;
-            font-size: 1.5rem;
-        }
-
-        .nav-link {
-            font-weight: 500;
-            position: relative;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: white;
-            bottom: 0;
-            left: 0;
-            transition: width 0.3s;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        section:nth-child(1) {
-            background-color: var(--section1-bg);
-            padding: 40px 0;
-            border-radius: 15px;
-            margin-bottom: 30px;
-        }
-
-        section:nth-child(2) {
-            background-color: var(--section2-bg);
-            padding: 40px 0;
-            border-radius: 15px;
-            margin-bottom: 30px;
-        }
-
-        section:nth-child(3) {
-            background-color: var(--section3-bg);
-            padding: 40px 0;
-            border-radius: 15px;
-            margin-bottom: 30px;
-        }
-
-        .topic-card {
-            height: 100%;
-            transition: all 0.3s ease;
-            border: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            background: white;
-        }
-
-        .topic-card:nth-child(1) .card-body {
-            border-top: 5px solid var(--card1-color);
-        }
-
-        .topic-card:nth-child(2) .card-body {
-            border-top: 5px solid var(--card2-color);
-        }
-
-        .topic-card:nth-child(3) .card-body {
-            border-top: 5px solid var(--card3-color);
-        }
-
-        .topic-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .key-points {
-            background-color: var(--primary-pink-light);
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 15px;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .key-points ul {
-            list-style-type: disc;
-            padding-left: 20px;
-            margin-bottom: 0;
-        }
-
-        .key-points ul li {
-            padding: 8px 0;
-            color: #555;
-        }
-
-        .scheme-card {
-            border: none;
-            border-radius: 15px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            background: white;
-            overflow: visible;
-        }
-
-        .scheme-card:nth-child(1) .scheme-header {
-            background: var(--card1-color);
-        }
-
-        .scheme-card:nth-child(2) .scheme-header {
-            background: var(--card2-color);
-        }
-
-        .scheme-card:nth-child(3) .scheme-header {
-            background: var(--card3-color);
-        }
-
-        .scheme-header {
-            background: var(--primary-pink);
-            padding: 15px 25px;
-            border-radius: 15px 15px 0 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        .scheme-header h5 {
-            color: white;
-            margin: 0;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-        }
-
-        .scheme-card .scheme-header {
-            background: var(--card3-color) !important;  /* Using orange color for all schemes */
-        }
-
-        .scheme-card .card-body {
-            padding: 25px;
-            background: white;
-            border-radius: 0 0 15px 15px;
-        }
-
-        .benefits-list {
-            list-style-type: disc;
-            padding-left: 20px;
-            margin-bottom: 0;
-        }
-
-        .benefits-list li {
-            padding: 8px 0;
-            color: #555;
-        }
-
-        .step-card {
-            border: none;
-            border-radius: 15px;
-            background-color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-
-        .step-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .step-number {
-            width: 40px;
-            height: 40px;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-bottom: 15px;
-            background: var(--primary-pink);
-        }
-
-        .step-card:nth-child(1) .step-number {
-            background: var(--card1-color);
-        }
-
-        .step-card:nth-child(2) .step-number {
-            background: var(--card2-color);
-        }
-
-        .step-card:nth-child(3) .step-number {
-            background: var(--card3-color);
-        }
-
-        .step-card ul {
-            list-style-type: disc;
-            padding-left: 20px;
-            margin-bottom: 0;
-        }
-
-        .step-card ul.list-unstyled {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .step-card ul li {
-            padding: 8px 0;
-            color: #555;
-            margin-left: 20px;
-        }
-
-        .section-title {
-            position: relative;
-            padding-bottom: 15px;
-            margin-bottom: 30px;
-            color: #333;
-        }
-
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100px;
-            height: 3px;
-            background: var(--primary-pink);
-        }
-
-        .card-title {
-            color: #333;
-            font-weight: 600;
-        }
-
-        .lead {
-            color: #555;
-        }
-
-        /* Container padding for sections */
-        .container section {
-            padding: 30px;
-        }
-
-        /* List item styling */
-        .step-card ul li {
-            padding: 8px 0;
-            color: #555;
-            position: relative;
-            padding-left: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/learn.css') }}">
+    <!-- <style>
+        
+    </style> -->
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -309,87 +43,919 @@
             </div>
         </div>
     </nav>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <span class="language-label">ENG</span>
+        <label class="language-switch">
+            <input type="checkbox" id="languageToggle" onchange="toggleLanguage()">
+            <span class="language-slider"></span>
+        </label>
+        <span class="language-label">हिंदी</span>
+    </div>
 
     <div class="container mt-4">
         <!-- Financial Literacy Section -->
         <section>
-            <h2 class="section-title">{{ financial_literacy.title }}</h2>
-            <p class="lead mb-4">{{ financial_literacy.description }}</p>
-            
+            <h2 class="section-title">
+                <span class="lang-en active">Financial Literacy</span>
+                <span class="lang-hi">वित्तीय साक्षरता</span>
+            </h2>
+            <p class="lead mb-4">
+                <span class="lang-en active">Master the basics of personal finance and make informed financial decisions.</span>
+                <span class="lang-hi">व्यक्तिगत वित्त की मूल बातें सीखें और सूचित वित्तीय निर्णय लें।</span>
+            </p>
             <div class="row g-4">
-                {% for topic in financial_literacy.topics %}
                 <div class="col-md-4">
                     <div class="topic-card card h-100">
                         <div class="card-body">
-                            <h5 class="card-title">{{ topic.title }}</h5>
-                            <p class="card-text">{{ topic.description }}</p>
+                            <h5 class="card-title">
+                                <span class="lang-en active">Budgeting Basics</span>
+                                <span class="lang-hi">बजट की मूल बातें</span>
+                            </h5>
                             <div class="key-points">
-                                <h6 class="mb-3">Key Points:</h6>
                                 <ul>
-                                    {% for point in topic.key_points %}
-                                    <li>{{ point }}</li>
-                                    {% endfor %}
+                                    <li>
+                                        <span class="lang-en active">Track your income and expenses</span>
+                                        <span class="lang-hi">अपनी आय और व्यय का हिसाब रखें</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-en active">Set financial goals</span>
+                                        <span class="lang-hi">वित्तीय लक्ष्य निर्धारित करें</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-en active">Create emergency funds</span>
+                                        <span class="lang-hi">आपातकालीन कोष बनाएं</span>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                {% endfor %}
+                <div class="col-md-4">
+                    <div class="topic-card card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <span class="lang-en active">Saving Strategies</span>
+                                <span class="lang-hi">बचत रणनीतियाँ</span>
+                            </h5>
+                            <div class="key-points">
+                                <ul>
+                                    <li>
+                                        <span class="lang-en active">Smart saving techniques</span>
+                                        <span class="lang-hi">स्मार्ट बचत तकनीकें</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-en active">Investment options</span>
+                                        <span class="lang-hi">निवेश विकल्प</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-en active">Long-term planning</span>
+                                        <span class="lang-hi">दीर्घकालिक योजना</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="topic-card card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <span class="lang-en active">Digital Banking</span>
+                                <span class="lang-hi">डिजिटल बैंकिंग</span>
+                            </h5>
+                            <div class="key-points">
+                                <ul>
+                                    <li>
+                                        <span class="lang-en active">Online transactions</span>
+                                        <span class="lang-hi">ऑनलाइन लेनदेन</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-en active">Mobile banking apps</span>
+                                        <span class="lang-hi">मोबाइल बैंकिंग ऐप्स</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-en active">Digital security</span>
+                                        <span class="lang-hi">डिजिटल सुरक्षा</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Government Schemes Section -->
-        <section>
-            <h2 class="section-title">{{ government_schemes.title }}</h2>
-            <p class="lead mb-4">{{ government_schemes.description }}</p>
-
-            {% for scheme in government_schemes.schemes %}
-            <div class="scheme-card">
-                <div class="scheme-header">
-                    <h5 class="mb-0">{{ scheme.name }}</h5>
-                </div>
-                <div class="card-body">
-                    <p class="card-text mt-3">{{ scheme.description }}</p>
-                    <div class="row mt-3">
-                        <div class="col-md-8">
-                            <h6>Benefits:</h6>
+        <section class="government-schemes-section">
+            <h2 class="section-title mb-4">
+                <span class="lang-en active">Government Financial Schemes</span>
+                <span class="lang-hi">सरकारी वित्तीय योजनाएं</span>
+            </h2>
+            <p class="lead mb-4">
+                <span class="lang-en active">Explore government initiatives designed to support your financial journey.</span>
+                <span class="lang-hi">आपकी वित्तीय यात्रा में सहायता के लिए सरकारी पहल जानें।</span>
+            </p>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="scheme-card">
+                        <div class="scheme-header">
+                            <h5>
+                                <span class="lang-en active">Pradhan Mantri Jan Dhan Yojana</span>
+                                <span class="lang-hi">प्रधानमंत्री जन धन योजना</span>
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="scheme-description">
+                                <span class="lang-en active">A financial inclusion program ensuring access to financial services.</span>
+                                <span class="lang-hi">वित्तीय सेवाओं तक पहुंच सुनिश्चित करने वाला वित्तीय समावेशन कार्यक्रम।</span>
+                            </p>
+                            <h6>
+                                <span class="lang-en active">Benefits:</span>
+                                <span class="lang-hi">लाभ:</span>
+                            </h6>
                             <ul class="benefits-list">
-                                {% for benefit in scheme.benefits %}
-                                <li>{{ benefit }}</li>
-                                {% endfor %}
+                                <li>
+                                    <span class="lang-en active">Zero balance savings account</span>
+                                    <span class="lang-hi">जीरो बैलेंस बचत खाता</span>
+                                </li>
+                                <li>
+                                    <span class="lang-en active">RuPay debit card</span>
+                                    <span class="lang-hi">रुपे डेबिट कार्ड</span>
+                                </li>
+                                <li>
+                                    <span class="lang-en active">Accident insurance cover</span>
+                                    <span class="lang-hi">दुर्घटना बीमा कवर</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="scheme-card">
+                        <div class="scheme-header">
+                            <h5>
+                                <span class="lang-en active">Sukanya Samriddhi Yojana</span>
+                                <span class="lang-hi">सुकन्या समृद्धि योजना</span>
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="scheme-description">
+                                <span class="lang-en active">A small savings scheme for the girl child with high interest rates.</span>
+                                <span class="lang-hi">बालिकाओं के लिए उच्च ब्याज दर वाली छोटी बचत योजना।</span>
+                            </p>
+                            <h6>
+                                <span class="lang-en active">Benefits:</span>
+                                <span class="lang-hi">लाभ:</span>
+                            </h6>
+                            <ul class="benefits-list">
+                                <li>
+                                    <span class="lang-en active">High interest rate</span>
+                                    <span class="lang-hi">उच्च ब्याज दर</span>
+                                </li>
+                                <li>
+                                    <span class="lang-en active">Tax benefits</span>
+                                    <span class="lang-hi">कर लाभ</span>
+                                </li>
+                                <li>
+                                    <span class="lang-en active">Partial withdrawal option</span>
+                                    <span class="lang-hi">आंशिक निकासी विकल्प</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="scheme-card">
+                        <div class="scheme-header">
+                            <h5>
+                                <span class="lang-en active">Pradhan Mantri Mudra Yojana</span>
+                                <span class="lang-hi">प्रधानमंत्री मुद्रा योजना</span>
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="scheme-description">
+                                <span class="lang-en active">Loans for micro and small business enterprises.</span>
+                                <span class="lang-hi">सूक्ष्म और लघु व्यवसाय उद्यमों के लिए ऋण।</span>
+                            </p>
+                            <h6>
+                                <span class="lang-en active">Benefits:</span>
+                                <span class="lang-hi">लाभ:</span>
+                            </h6>
+                            <ul class="benefits-list">
+                                <li>
+                                    <span class="lang-en active">Collateral-free loans</span>
+                                    <span class="lang-hi">बिना गारंटी के ऋण</span>
+                                </li>
+                                <li>
+                                    <span class="lang-en active">Low interest rates</span>
+                                    <span class="lang-hi">कम ब्याज दरें</span>
+                                </li>
+                                <li>
+                                    <span class="lang-en active">Easy documentation</span>
+                                    <span class="lang-hi">आसान दस्तावेजीकरण</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            {% endfor %}
         </section>
 
-        <!-- Bank Account Creation Section -->
-        <section>
-            <h2 class="section-title">{{ bank_account.title }}</h2>
-            <p class="lead mb-4">{{ bank_account.description }}</p>
+         <!-- Bank Account Creation Section -->
+         <section>
+            <h2 class="section-title mb-4">
+                <span class="lang-en active">Bank Account Creation</span>
+                <span class="lang-hi">बैंक खाता खोलना</span>
+            </h2>
+            <p class="section-description mb-4">
+                <span class="lang-en active">Learn how to create a bank account and manage your finances effectively.</span>
+                <span class="lang-hi">बैंक खाता कैसे खोलें और अपने वित्त को प्रभावी ढंग से प्रबंधित करें यह जानें।</span>
+            </p>
 
             <div class="row g-4">
-                {% for step in bank_account.steps %}
-                <div class="col-md-4">
+                <!-- Step 1: Choose a Bank -->
+                <div class="col-lg-4">
                     <div class="step-card">
                         <div class="card-body">
-                            <div class="step-number">{{ loop.index }}</div>
-                            <h5 class="card-title mb-3">{{ step.title }}</h5>
-                            <ul>
-                                {% for detail in step.details %}
-                                <li>{{ detail }}</li>
-                                {% endfor %}
+                            <div class="step-number">1</div>
+                            <h5 class="card-title">
+                                <span class="lang-en active">Choose a Bank</span>
+                                <span class="lang-hi">बैंक चुनें</span>
+                            </h5>
+                            <ul class="step-details">
+                                <li>
+                                    <span class="lang-en active">Research different banks and their services</span>
+                                    <span class="lang-hi">विभिन्न बैंकों और उनकी सेवाओं की जानकारी लें</span>
+                                </li>
+                                <li>
+                                    <span class="lang-en active">Compare account types and fees</span>
+                                    <span class="lang-hi">खाता प्रकार और शुल्क की तुलना करें</span>
+                                </li>
+                                <li>
+                                    <span class="lang-en active">Check branch locations and ATM availability</span>
+                                    <span class="lang-hi">शाखा स्थान और एटीएम उपलब्धता की जाँच करें</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                {% endfor %}
+
+                <!-- Step 2: Gather Documents -->
+                <div class="col-lg-4">
+                    <div class="step-card">
+                        <div class="card-body">
+                            <div class="step-number">2</div>
+                            <h5 class="card-title">
+                                <span class="lang-en active">Gather Required Documents</span>
+                                <span class="lang-hi">आवश्यक दस्तावेज इकट्ठा करें</span>
+                            </h5>
+                            <ul class="step-details">
+                                <li>
+                                    <span class="lang-en active">Valid ID proof (Aadhar, PAN card)</span>
+                                    <span class="lang-hi">वैध पहचान प्रमाण (आधार, पैन कार्ड)</span>
+                                </li>
+                                <li>
+                                    <span class="lang-en active">Address proof (Utility bill, Passport)</span>
+                                    <span class="lang-hi">पता प्रमाण (उपयोगिता बिल, पासपोर्ट)</span>
+                                </li>
+                                <li>
+                                    <span class="lang-en active">Passport size photographs</span>
+                                    <span class="lang-hi">पासपोर्ट साइज फोटो</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Visit Bank -->
+                <div class="col-lg-4">
+                    <div class="step-card">
+                        <div class="card-body">
+                            <div class="step-number">3</div>
+                            <h5 class="card-title">
+                                <span class="lang-en active">Visit Bank & Complete Process</span>
+                                <span class="lang-hi">बैंक जाएं और प्रक्रिया पूरी करें</span>
+                            </h5>
+                            <ul class="step-details">
+                                <li>
+                                    <span class="lang-en active">Fill out account opening form</span>
+                                    <span class="lang-hi">खाता खोलने का फॉर्म भरें</span>
+                                </li>
+                                <li>
+                                    <span class="lang-en active">Submit documents and initial deposit</span>
+                                    <span class="lang-hi">दस्तावेज और प्रारंभिक जमा जमा करें</span>
+                                </li>
+                                <li>
+                                    <span class="lang-en active">Collect passbook and debit card</span>
+                                    <span class="lang-hi">पासबुक और डेबिट कार्ड प्राप्त करें</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+         </section>
+
+        <!-- Blog Section -->
+        <section class="blog-section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="lang-en active">Financial Insights Blog</span>
+                    <span class="lang-hi">वित्तीय अंतर्दृष्टि ब्लॉग</span>
+                </h2>
+                <p class="lead mb-4">
+                    <span class="lang-en active">Explore our latest articles on personal finance, investing, and money management.</span>
+                    <span class="lang-hi">व्यक्तिगत वित्त, निवेश और धन प्रबंधन पर हमारे नवीनतम लेखों का अन्वेषण करें।</span>
+                </p>
+                
+                <div class="blog-grid">
+                    <!-- Investment Blog -->
+                    <article class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Investment Strategies" class="blog-image">
+                        <div class="blog-content">
+                            <span class="blog-category">
+                                <span class="lang-en active">Investing</span>
+                                <span class="lang-hi">निवेश</span>
+                            </span>
+                            <h3 class="blog-title">
+                                <span class="lang-en active">Smart Investment Strategies for Beginners</span>
+                                <span class="lang-hi">नए निवेशकों के लिए स्मार्ट निवेश रणनीतियां</span>
+                            </h3>
+                            <p class="blog-excerpt">
+                                <span class="lang-en active">Learn the fundamentals of investing, from understanding market basics to building a diversified portfolio that aligns with your financial goals.</span>
+                                <span class="lang-hi">निवेश की मूल बातें सीखें, बाजार की बुनियादी जानकारी से लेकर अपने वित्तीय लक्ष्यों के अनुरूप विविध पोर्टफोलियो बनाने तक।</span>
+                            </p>
+                            <div class="blog-meta">
+                                <div class="blog-author">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen" class="author-avatar">
+                                    <span>Sarah Chen</span>
+                                </div>
+                                <a href="#" class="read-more">
+                                    <span class="lang-en active">Read More</span>
+                                    <span class="lang-hi">और पढ़ें</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Savings Blog -->
+                    <article class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Saving Money" class="blog-image">
+                        <div class="blog-content">
+                            <span class="blog-category">
+                                <span class="lang-en active">Savings</span>
+                                <span class="lang-hi">बचत</span>
+                            </span>
+                            <h3 class="blog-title">
+                                <span class="lang-en active">10 Effective Ways to Save Money in 2025</span>
+                                <span class="lang-hi">2025 में पैसे बचाने के 10 प्रभावी तरीके</span>
+                            </h3>
+                            <p class="blog-excerpt">
+                                <span class="lang-en active">Discover practical tips and modern approaches to saving money, including automated savings strategies and smart budgeting techniques.</span>
+                                <span class="lang-hi">पैसे बचाने के व्यावहारिक टिप्स और आधुनिक तरीके जानें, जिसमें स्वचालित बचत रणनीतियां और स्मार्ट बजटिंग तकनीकें शामिल हैं।</span>
+                            </p>
+                            <div class="blog-meta">
+                                <div class="blog-author">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Ross" class="author-avatar">
+                                    <span>Michael Ross</span>
+                                </div>
+                                <a href="#" class="read-more">
+                                    <span class="lang-en active">Read More</span>
+                                    <span class="lang-hi">और पढ़ें</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Credit Blog -->
+                    <article class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Credit Score" class="blog-image">
+                        <div class="blog-content">
+                            <span class="blog-category">
+                                <span class="lang-en active">Credit</span>
+                                <span class="lang-hi">क्रेडिट</span>
+                            </span>
+                            <h3 class="blog-title">
+                                <span class="lang-en active">Building and Maintaining a Strong Credit Score</span>
+                                <span class="lang-hi">क्रेडिट स्कोर को मजबूत बनाने और बनाए रखने के लिए</span>
+                            </h3>
+                            <p class="blog-excerpt">
+                                <span class="lang-en active">Understanding credit scores, factors that affect them, and proven strategies to improve and maintain a healthy credit profile.</span>
+                                <span class="lang-hi">क्रेडिट स्कोर को समझना, उन पर प्रभाव डालने वाले कारक, और स्वस्थ क्रेडिट प्रोफाइल को सुधारने और बनाए रखने के लिए सिद्ध रणनीतियाँ।</span>
+                            </p>
+                            <div class="blog-meta">
+                                <div class="blog-author">
+                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emma Thompson" class="author-avatar">
+                                    <span>Emma Thompson</span>
+                                </div>
+                                <a href="#" class="read-more">
+                                    <span class="lang-en active">Read More</span>
+                                    <span class="lang-hi">और पढ़ें</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Retirement Blog -->
+                    <article class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1473186578172-c141e6798cf4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Retirement Planning" class="blog-image">
+                        <div class="blog-content">
+                            <span class="blog-category">
+                                <span class="lang-en active">Retirement</span>
+                                <span class="lang-hi">सेवानिवृत्ति</span>
+                            </span>
+                            <h3 class="blog-title">
+                                <span class="lang-en active">Early Retirement Planning: Start Today</span>
+                                <span class="lang-hi">सेवानिवृत्ति की योजना बनाना: आज से शुरू करें</span>
+                            </h3>
+                            <p class="blog-excerpt">
+                                <span class="lang-en active">Essential strategies for planning your retirement, including investment options, tax considerations, and lifestyle planning.</span>
+                                <span class="lang-hi">सेवानिवृत्ति की योजना बनाने के लिए आवश्यक रणनीतियाँ, जिनमें निवेश विकल्प, कर विचार, और जीवनशैली योजना शामिल हैं।</span>
+                            </p>
+                            <div class="blog-meta">
+                                <div class="blog-author">
+                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="David Kumar" class="author-avatar">
+                                    <span>David Kumar</span>
+                                </div>
+                                <a href="#" class="read-more">
+                                    <span class="lang-en active">Read More</span>
+                                    <span class="lang-hi">और पढ़ें</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tax Planning Blog -->
+                    <article class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Tax Planning" class="blog-image">
+                        <div class="blog-content">
+                            <span class="blog-category">
+                                <span class="lang-en active">Tax Planning</span>
+                                <span class="lang-hi">कर योजना</span>
+                            </span>
+                            <h3 class="blog-title">
+                                <span class="lang-en active">Smart Tax Planning Strategies for 2025</span>
+                                <span class="lang-hi">2025 के लिए स्मार्ट कर योजना रणनीतियाँ</span>
+                            </h3>
+                            <p class="blog-excerpt">
+                                <span class="lang-en active">Learn about tax-saving investments, deductions, and strategies to optimize your tax planning for the current financial year.</span>
+                                <span class="lang-hi">कर बचत निवेश, कटौती, और वर्तमान वित्तीय वर्ष के लिए अपनी कर योजना को अनुकूलित करने के लिए रणनीतियों के बारे में जानें।</span>
+                            </p>
+                            <div class="blog-meta">
+                                <div class="blog-author">
+                                    <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Lisa Wang" class="author-avatar">
+                                    <span>Lisa Wang</span>
+                                </div>
+                                <a href="#" class="read-more">
+                                    <span class="lang-en active">Read More</span>
+                                    <span class="lang-hi">और पढ़ें</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Digital Banking Blog -->
+                    <article class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Digital Banking" class="blog-image">
+                        <div class="blog-content">
+                            <span class="blog-category">
+                                <span class="lang-en active">Digital Banking</span>
+                                <span class="lang-hi">डिजिटल बैंकिंग</span>
+                            </span>
+                            <h3 class="blog-title">
+                                <span class="lang-en active">The Future of Digital Banking</span>
+                                <span class="lang-hi">डिजिटल बैंकिंग का भविष्य</span>
+                            </h3>
+                            <p class="blog-excerpt">
+                                <span class="lang-en active">Explore the latest trends in digital banking, mobile payments, and how technology is transforming personal finance management.</span>
+                                <span class="lang-hi">डिजिटल बैंकिंग, मोबाइल भुगतान, और प्रौद्योगिकी के व्यक्तिगत वित्त प्रबंधन को कैसे बदल रही है, इसके नवीनतम रुझानों का अन्वेषण करें।</span>
+                            </p>
+                            <div class="blog-meta">
+                                <div class="blog-author">
+                                    <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Alex Martinez" class="author-avatar">
+                                    <span>Alex Martinez</span>
+                                </div>
+                                <a href="#" class="read-more">
+                                    <span class="lang-en active">Read More</span>
+                                    <span class="lang-hi">और पढ़ें</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
-    </div>
 
+        <!-- Enhanced Chatbot -->
+        <div class="chat-widget">
+            <div class="chat-button" onclick="toggleChat()">
+                <i class="fas fa-comments"></i>
+            </div>
+            <div class="chat-window" id="chatWindow">
+                <div class="chat-header">
+                    <i class="fas fa-robot"></i>
+                    Financial Advisor Bot
+                </div>
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot-message">
+                        Hello! 👋 I'm your personal financial advisor. I can help you with questions about:
+                        <br>- Budgeting & Saving
+                        <br>- Investing & Markets
+                        <br>- Credit & Loans
+                        <br>- Insurance & Risk
+                        <br>- Tax Planning
+                        <br>What would you like to learn about?
+                    </div>
+                </div>
+                <div class="typing-indicator" id="typingIndicator">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="chat-input-container">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="userInput" 
+                               placeholder="Type your question here..." 
+                               onkeypress="handleKeyPress(event)">
+                        <button class="btn btn-primary" onclick="sendMessage()">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Enhanced Chatbot Functions
+        // Language Toggle Implementation
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Initializing language toggle...');
+            const langToggle = document.getElementById('languageToggle');
+            if (!langToggle) {
+                console.error('Language toggle element not found!');
+                return;
+            }
+
+            // Initialize the toggle state
+            const currentLang = localStorage.getItem('preferredLanguage') || 'en';
+            langToggle.checked = currentLang === 'hi';
+            setLanguage(currentLang);
+
+            // Add event listener
+            langToggle.addEventListener('change', function(e) {
+                console.log('Toggle changed:', e.target.checked);
+                const newLang = e.target.checked ? 'hi' : 'en';
+                setLanguage(newLang);
+                localStorage.setItem('preferredLanguage', newLang);
+            });
+        });
+
+        function setLanguage(lang) {
+            console.log('Setting language to:', lang);
+            const isHindi = lang === 'hi';
+            
+            // Get all language elements
+            const englishElements = document.querySelectorAll('.lang-en');
+            const hindiElements = document.querySelectorAll('.lang-hi');
+            
+            console.log('Found elements:', {
+                english: englishElements.length,
+                hindi: hindiElements.length
+            });
+
+            // Function to determine proper display type
+            function getDisplayType(element) {
+                // Get the computed style of the element
+                const computedStyle = window.getComputedStyle(element);
+                // Check if the element is naturally a block element
+                const naturalDisplay = computedStyle.display;
+                return naturalDisplay === 'block' || 
+                       element.tagName.match(/^(DIV|P|H[1-6]|SECTION|ARTICLE)$/i) 
+                       ? 'block' : 'inline-block';
+            }
+
+            // Toggle English elements
+            englishElements.forEach(el => {
+                const displayType = getDisplayType(el);
+                el.style.display = isHindi ? 'none' : displayType;
+                if (isHindi) {
+                    el.classList.remove('active');
+                } else {
+                    el.classList.add('active');
+                }
+            });
+            
+            // Toggle Hindi elements
+            hindiElements.forEach(el => {
+                const displayType = getDisplayType(el);
+                el.style.display = isHindi ? displayType : 'none';
+                if (isHindi) {
+                    el.classList.add('active');
+                } else {
+                    el.classList.remove('active');
+                }
+            });
+
+            // Update the document title
+            document.title = isHindi ? 'सीखें - वित्तीय शिक्षा' : 'Learn - Financial Education';
+
+            // Update chatbot language if the function exists
+            if (typeof updateChatbotLanguage === 'function') {
+                updateChatbotLanguage(isHindi);
+            }
+
+        }
+
+
+        function convertToHindiNumerals(text) {
+            const hindiNumerals = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९'];
+            return text.replace(/[0-9]/g, match => hindiNumerals[parseInt(match)]);
+        }
+
+        // Rest of your existing script
+        // Enhanced Chatbot Functions
+        const chatMessages = document.getElementById('chatMessages');
+        const userInput = document.getElementById('userInput');
+        const typingIndicator = document.getElementById('typingIndicator');
+        let isChatOpen = false;
+
+        function toggleChat() {
+            const chatWindow = document.getElementById('chatWindow');
+            isChatOpen = !isChatOpen;
+            chatWindow.style.display = isChatOpen ? 'block' : 'none';
+            // if (isChatOpen) {
+            //     userInput.focus();
+            // }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function showTypingIndicator() {
+            typingIndicator.style.display = 'block';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function hideTypingIndicator() {
+            typingIndicator.style.display = 'none';
+        }
+
+        function addMessage(message, isUser) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+            messageDiv.innerHTML = message;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function sendMessage() {
+            const message = userInput?.value?.trim() || "";
+            if (message) {
+                addMessage(message, true);
+                userInput.value = '';
+                showTypingIndicator();
+                
+                // Comprehensive response logic
+                const responses = {
+                    'budget': {
+                        keywords: ['budget', 'spending', 'expense', 'money', 'track'],
+                        response: `Here's a comprehensive guide to budgeting:<br><br>
+                            1. Track Your Income & Expenses:<br>
+                            - Record all sources of income<br>
+                            - Track every expense for a month<br><br>
+                            2. Follow the 50/30/20 Rule:<br>
+                            - 50% for needs (rent, utilities, food)<br>
+                            - 30% for wants (entertainment, dining out)<br>
+                            - 20% for savings and debt repayment<br><br>
+                            3. Tips for Success:<br>
+                            - Use budgeting apps<br>
+                            - Set up automatic savings<br>
+                            - Review and adjust monthly`
+                    },
+                    'invest': {
+                        keywords: ['invest', 'stock', 'market', 'return', 'portfolio', 'fund'],
+                        response: `Investment Strategy Guide:<br><br>
+                            1. Basic Principles:<br>
+                            - Diversify across asset classes<br>
+                            - Invest for the long term<br>
+                            - Consider your risk tolerance<br><br>
+                            2. Investment Options:<br>
+                            - Index funds (low-cost, diversified)<br>
+                            - ETFs (trade like stocks)<br>
+                            - Mutual funds (professionally managed)<br>
+                            - Individual stocks (higher risk)<br><br>
+                            3. Best Practices:<br>
+                            - Start early to benefit from compound interest<br>
+                            - Regular contributions matter more than timing<br>
+                            - Rebalance your portfolio annually`
+                    },
+                    'save': {
+                        keywords: ['save', 'saving', 'emergency', 'fund', 'goal'],
+                        response: `Smart Saving Strategies:<br><br>
+                            1. Emergency Fund:<br>
+                            - Aim for 3-6 months of expenses<br>
+                            - Keep in easily accessible account<br>
+                            - Start small, build consistently<br><br>
+                            2. Saving Methods:<br>
+                            - Automatic transfers<br>
+                            - Round-up savings apps<br>
+                            - High-yield savings accounts<br><br>
+                            3. Goal-Based Saving:<br>
+                            - Set specific, measurable goals<br>
+                            - Create separate accounts for different goals<br>
+                            - Track progress regularly`
+                    },
+                    'credit': {
+                        keywords: ['credit', 'loan', 'debt', 'score', 'interest'],
+                        response: `Understanding Credit & Loans:<br><br>
+                            1. Credit Score Factors:<br>
+                            - Payment history (35%)<br>
+                            - Credit utilization (30%)<br>
+                            - Length of credit history (15%)<br>
+                            - Credit mix (10%)<br>
+                            - New credit (10%)<br><br>
+                            2. Improving Credit Score:<br>
+                            - Pay bills on time<br>
+                            - Keep utilization below 30%<br>
+                            - Don't close old accounts<br>
+                            - Monitor your credit report<br><br>
+                            3. Managing Debt:<br>
+                            - Prioritize high-interest debt<br>
+                            - Consider debt consolidation<br>
+                            - Avoid taking on unnecessary debt`
+                    },
+                    'insurance': {
+                        keywords: ['insurance', 'risk', 'coverage', 'policy', 'protect'],
+                        response: `Insurance Essentials:<br><br>
+                            1. Types of Insurance:<br>
+                            - Health insurance<br>
+                            - Life insurance<br>
+                            - Auto insurance<br>
+                            - Home/Rental insurance<br>
+                            - Disability insurance<br><br>
+                            2. Choosing Coverage:<br>
+                            - Assess your needs and risks<br>
+                            - Compare policies and providers<br>
+                            - Understand deductibles and limits<br><br>
+                            3. Cost-Saving Tips:<br>
+                            - Bundle policies<br>
+                            - Maintain good credit<br>
+                            - Review coverage annually`
+                    },
+                    'tax': {
+                        keywords: ['tax', 'deduction', 'return', 'ira', 'income'],
+                        response: `Tax Planning Strategies:<br><br>
+                            1. Tax-Advantaged Accounts:<br>
+                            - 401(k) and IRAs<br>
+                            - HSAs for healthcare<br>
+                            - 529 plans for education<br><br>
+                            2. Deductions & Credits:<br>
+                            - Standard vs. itemized deductions<br>
+                            - Common tax credits<br>
+                            - Business deductions<br><br>
+                            3. Best Practices:<br>
+                            - Keep organized records<br>
+                            - Plan year-round<br>
+                            - Consider professional help`
+                    }
+                };
+
+                // Find the most relevant response
+                let bestResponse = null;
+                let maxMatches = 0;
+
+                for (let category in responses) {
+                    const keywords = responses[category].keywords;
+                    const matches = keywords.filter(keyword => 
+                        message.toLowerCase().includes(keyword.toLowerCase())
+                    ).length;
+                    
+                    if (matches > maxMatches) {
+                        maxMatches = matches;
+                        bestResponse = responses[category].response;
+                    }
+                }
+
+                // Default response if no keywords match
+                if (!bestResponse) {
+                    bestResponse = `I'm here to help with your financial questions! You can ask about:<br><br>
+                        - Budgeting and expense tracking<br>
+                        - Investment strategies<br>
+                        - Saving methods and goals<br>
+                        - Credit and loans<br>
+                        - Insurance coverage<br>
+                        - Tax planning<br><br>
+                        What specific topic would you like to learn more about?`;
+                }
+
+                // Simulate typing delay for more natural interaction
+                setTimeout(() => {
+                    hideTypingIndicator();
+                    addMessage(bestResponse, false);
+                }, 1000 + Math.random() * 1000); // Random delay between 1-2 seconds
+            }
+        }
+
+        // Initialize language toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const langToggle = document.getElementById('languageToggle');
+            langToggle.addEventListener('change', toggleLanguage);
+            
+            // Set initial state
+            const isHindi = document.querySelector('.lang-hi').classList.contains('active');
+            langToggle.checked = isHindi;
+        });
+
+        function toggleLanguage() {
+            const isHindi = document.getElementById('languageToggle').checked;
+            const englishElements = document.querySelectorAll('.lang-en');
+            const hindiElements = document.querySelectorAll('.lang-hi');
+            
+            // Toggle English elements
+            englishElements.forEach(el => {
+                if (isHindi) {
+                    el.classList.remove('active');
+                    el.style.display = 'none';
+                } else {
+                    el.classList.add('active');
+                    el.style.display = 'inline-block';
+                }
+            });
+            
+            // Toggle Hindi elements
+            hindiElements.forEach(el => {
+                if (isHindi) {
+                    el.classList.add('active');
+                    el.style.display = 'inline-block';
+                } else {
+                    el.classList.remove('active');
+                    el.style.display = 'none';
+                }
+            });
+
+            // Update chatbot language
+            updateChatbotLanguage(isHindi);
+        }
+
+        // Update chatbot responses based on language
+        function updateChatbotLanguage(isHindi) {
+            responses = isHindi ? hindiResponses : englishResponses;
+        }
+
+        // Chatbot responses in English
+        const englishResponses = {
+            'budget': {
+                keywords: ['budget', 'spending', 'expense', 'money', 'track'],
+                response: `Here's a comprehensive guide to budgeting:<br><br>
+                    1. Track Your Income & Expenses:<br>
+                    - Record all sources of income<br>
+                    - Track every expense for a month<br><br>
+                    2. Follow the 50/30/20 Rule:<br>
+                    - 50% for needs (rent, utilities, food)<br>
+                    - 30% for wants (entertainment, dining out)<br>
+                    - 20% for savings and debt repayment<br><br>
+                    3. Tips for Success:<br>
+                    - Use budgeting apps<br>
+                    - Set up automatic savings<br>
+                    - Review and adjust monthly`
+            },
+            // ... other English responses ...
+        };
+
+        // Chatbot responses in Hindi
+        const hindiResponses = {
+            'budget': {
+                keywords: ['बजट', 'खर्च', 'व्यय', 'पैसा', 'ट्रैक'],
+                response: `बजट बनाने के लिए एक व्यापक गाइड:<br><br>
+                    1. आय और व्यय का ट्रैक रखें:<br>
+                    - सभी आय स्रोतों का रिकॉर्ड रखें<br>
+                    - हर महीने के खर्चों को ट्रैक करें<br><br>
+                    2. 50/30/20 नियम का पालन करें:<br>
+                    - 50% जरूरतों के लिए (किराया, बिजली-पानी, भोजन)<br>
+                    - 30% इच्छाओं के लिए (मनोरंजन, बाहर खाना)<br>
+                    - 20% बचत और कर्ज चुकाने के लिए<br><br>
+                    3. सफलता के लिए टिप्स:<br>
+                    - बजटिंग ऐप्स का उपयोग करें<br>
+                    - स्वचालित बचत सेट करें<br>
+                    - मासिक समीक्षा और समायोजन करें`
+            },
+            // ... other Hindi responses ...
+        };
+
+        let responses = englishResponses; // Default to English
+
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
