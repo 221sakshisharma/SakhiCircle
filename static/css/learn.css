@@ -345,9 +345,9 @@ section {
     bottom: 80px;
     right: 0;
     width: 380px;
-    height: 600px;
+    height: 500px;
     background: white;
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 0 5px 25px rgba(0,0,0,0.2);
     overflow: hidden;
     animation: slideUp 0.3s ease;
@@ -360,7 +360,7 @@ section {
     background: var(--primary-pink);
     color: white;
     padding: 20px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -369,7 +369,7 @@ section {
     font-size: 1.4rem;
 }
 .chat-messages {
-    height: calc(100% - 140px);
+    height: calc(100% - 150px);
     padding: 20px;
     overflow-y: auto;
     background: #f8f9fa;
